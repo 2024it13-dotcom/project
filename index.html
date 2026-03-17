@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <!-- Адаптивність: контроль масштабування на мобільних пристроях -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ТехноСвіт — Ваше вікно у світ технологій</title>
+    <style>
+        /* Майбутня сітка: Flexbox та Grid будуть додані сюди */
+        header, main, footer { display: flex; flex-direction: column; }
+        .grid-container { display: grid; }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка сайту з робочою навігацією (Якорі) -->
+    <header>
+        <nav aria-label="Головна навігація">
+            <div class="logo"><strong>TechWorld</strong></div>
+            <ul>
+                <li><a href="#hero">Головна</a></li>
+                <li><a href="#trends">Тренди</a></li>
+                <li><a href="#categories">Категорії</a></li>
+                <li><a href="#reviews">Огляди</a></li>
+                <li><a href="#subscribe">Підписка</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Блок 1: Hero Section (Семантичний тег <section>) -->
+        <section id="hero">
+            <h1>Майбутнє технологій у ваших руках</h1>
+            <p>Останні новини зі світу IT та гаджетів.</p>
+            <button type="button">Читати новини</button>
+        </section>
+
+        <!-- Блок 2: Тренди (Семантичний тег <article> для окремих новин) -->
+        <section id="trends">
+            <h2>Гарячі теми дня</h2>
+            <article>
+                <h3>Штучний інтелект у 2024 році</h3>
+                <p>Як нейромережі змінюють ринок праці...</p>
+            </article>
+        </section>
+
+        <!-- Блок 3: Рубрикатор (Семантичний тег <nav> для внутрішніх посилань) -->
+        <section id="categories">
+            <h2>Оберіть категорію</h2>
+            <nav>
+                <ul>
+                    <li><a href="ai.html">ШІ</a></li>
+                    <li><a href="mobile.html">Смартфони</a></li>
+                    <li><a href="software.html">Софт</a></li>
+                </ul>
+            </nav>
+        </section>
+
+        <!-- Блок 4: Додатковий контент (Семантичний тег <aside>) -->
+        <aside id="sidebar">
+            <h3>Цікавий факт</h3>
+            <p>Перший комп'ютерний вірус було створено у 1971 році.</p>
+        </aside>
+
+        <!-- Блок 5: Підписка (Форма всередині <section>) -->
+        <section id="subscribe">
+            <h2>Будьте в курсі подій</h2>
+            <form action="#">
+                <input type="email" placeholder="Ваш Email" required>
+                <button type="submit">Підписатися</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Футер сайту -->
+    <footer>
+        <p>&copy; 2026 ТехноСвіт. Всі права захищено.</p>
+    </footer>
+
+</body>
+</html>
