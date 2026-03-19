@@ -2,67 +2,61 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <!-- Адаптивність: контроль масштабування на мобільних пристроях -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ТехноСвіт — Ваше вікно у світ технологій</title>
-    <style>
-        /* Майбутня сітка: Flexbox та Grid будуть додані сюди */
-        header, main, footer { display: flex; flex-direction: column; }
-        .grid-container { display: grid; }
-    </style>
+    <!-- Підключення зовнішнього файлу стилів -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Шапка сайту з робочою навігацією (Якорі) -->
     <header>
         <nav aria-label="Головна навігація">
             <div class="logo"><strong>TechWorld</strong></div>
             <ul>
                 <li><a href="#hero">Головна</a></li>
                 <li><a href="#trends">Тренди</a></li>
-                <li><a href="#categories">Категорії</a></li>
-                <li><a href="#reviews">Огляди</a></li>
                 <li><a href="#subscribe">Підписка</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <!-- Блок 1: Hero Section (Семантичний тег <section>) -->
         <section id="hero">
             <h1>Майбутнє технологій у ваших руках</h1>
             <p>Останні новини зі світу IT та гаджетів.</p>
-            <button type="button">Читати новини</button>
+            <button type="button" class="btn-hero">Читати новини</button>
         </section>
 
-        <!-- Блок 2: Тренди (Семантичний тег <article> для окремих новин) -->
         <section id="trends">
-            <h2>Гарячі теми дня</h2>
-            <article>
-                <h3>Штучний інтелект у 2024 році</h3>
-                <p>Як нейромережі змінюють ринок праці...</p>
-            </article>
+            <h2 class="section-title">Гарячі теми дня</h2>
+            
+            <div class="container">
+                <!-- Картка 1 -->
+                <div class="card">
+                    <img  src="https://placehold.co/600x400/e2e8f0/475569?text=ШI">
+                    <h3>Штучний інтелект 2024</h3>
+                    <p>Дізнайтеся, як нейромережі змінюють ринок праці та допомагають людям створювати неймовірні речі.</p>
+                    <button>Читати далі</button>
+                </div>
+
+                <!-- Картка 2 -->
+                <div class="card">
+                    <img src="https://placehold.co/600x400/e2e8f0/475569?text=Гаджети">
+                    <h3>Топ нових гаджетів</h3>
+                    <p>Огляд найкрутіших смартфонів та розумних девайсів, які з'являться у продажу вже цього місяця.</p>
+                    <button>Переглянути</button>
+                </div>
+
+                <!-- Картка 3 -->
+                <div class="card">
+                    <img  src="https://placehold.co/600x400/e2e8f0/475569?text=Безпека">
+                    <h3>Кібербезпека сьогодні</h3>
+                    <p>Прості поради, як захистити свої дані та не стати жертвою шахраїв у цифровому світі.</p>
+                    <button>Дізнатися більше</button>
+                </div>
+            </div>
         </section>
 
-        <!-- Блок 3: Рубрикатор (Семантичний тег <nav> для внутрішніх посилань) -->
-        <section id="categories">
-            <h2>Оберіть категорію</h2>
-            <nav>
-                <ul>
-                    <li><a href="ai.html">ШІ</a></li>
-                    <li><a href="mobile.html">Смартфони</a></li>
-                    <li><a href="software.html">Софт</a></li>
-                </ul>
-            </nav>
-        </section>
-
-        <!-- Блок 4: Додатковий контент (Семантичний тег <aside>) -->
-        <aside id="sidebar">
-            <h3>Цікавий факт</h3>
-            <p>Перший комп'ютерний вірус було створено у 1971 році.</p>
-        </aside>
-
-        <!-- Блок 5: Підписка (Форма всередині <section>) -->
         <section id="subscribe">
             <h2>Будьте в курсі подій</h2>
             <form action="#">
@@ -72,7 +66,6 @@
         </section>
     </main>
 
-    <!-- Футер сайту -->
     <footer>
         <p>&copy; 2026 ТехноСвіт. Всі права захищено.</p>
     </footer>
