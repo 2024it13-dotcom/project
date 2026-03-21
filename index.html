@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechWorld — Світ технологій</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Подключаем современный шрифт -->
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">Tech<span>World</span></div>
+            <ul>
+                <li><a href="#hero">Головна</a></li>
+                <li><a href="#trends">Тренди</a></li>
+                <li><button id="theme-toggle" class="theme-btn">🌙</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Майбутнє технологій <br>у ваших руках</h1>
+                <p>Останні новини зі світу IT, гаджетів та нейромереж.</p>
+                <button id="hero-btn" class="main-btn">Читати новини</button>
+            </div>
+        </section>
+
+        <section id="trends">
+            <h2 class="section-title">Гарячі теми дня</h2>
+            
+            <div class="search-wrapper">
+                <input type="text" id="search-input" placeholder="Пошук новин за назвою...">
+            </div>
+
+            <div class="container" id="cards-container">
+                <!-- Картка 1 -->
+                <div class="card">
+                    <div class="card-img">
+                        <img  src="https://placehold.co/600x400/e2e8f0/475569?text=ШI">
+                    </div>
+                    <div class="card-content">
+                        <h3>Штучний інтелект 2024</h3>
+                        <p>Дізнайтеся, як нейромережі змінюють ринок праці та допомагають людям створювати неймовірні речі щодня.</p>
+                        <button class="card-btn">Читати далі</button>
+                    </div>
+                </div>
+
+                <!-- Картка 2 -->
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://placehold.co/600x400/e2e8f0/475569?text=Гаджети">
+                    </div>
+                    <div class="card-content">
+                        <h3>Топ нових гаджетів</h3>
+                        <p>Огляд найкрутіших смартфонів та розумних девайсів, які з'являться у продажу вже найближчим часом.</p>
+                        <button class="card-btn">Переглянути</button>
+                    </div>
+                </div>
+
+                <!-- Картка 3 -->
+                <div class="card">
+                    <div class="card-img">
+                        <img  src="https://placehold.co/600x400/e2e8f0/475569?text=Безпека">
+                    </div>
+                    <div class="card-content">
+                        <h3>Кібербезпека сьогодні</h3>
+                        <p>Прості поради, як захистити свої дані та не стати жертвою шахраїв у сучасному цифровому світі.</p>
+                        <button class="card-btn">Дізнатися більше</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 ТехноСвіт. Розроблено з інтелектом.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
