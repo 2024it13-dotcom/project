@@ -1,30 +1,82 @@
-// 1. Переключение темы
-const themeToggle = document.getElementById('theme-toggle');
-themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-theme');
-    // Меняем иконку: если темная тема — солнце, если светлая — луна
-    themeToggle.textContent = document.body.classList.contains('dark-theme') ? '☀️' : '🌙';
+// --- 1. Сяйво за курсором ---
+const glow = document.createElement('div');
+glow.className = 'glow-cursor';
+document.body.prepend(glow);
+document.addEventListener('mousemove', (e) => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
 });
 
-// 2. Живой поиск (фильтрация)
-const searchInput = document.getElementById('search-input');
-const cards = document.querySelectorAll('.card');
+// --- 2. Тема з пам'яттю ---
+const themeBtn = document.getElementById('theme-toggle');
+const updateThemeUI = (isDark) => {
+    document.body.classList.toggle('dark-theme', isDark);
+    themeBtn.textContent = isDark ? '☀️' : '🌙';
+};
 
-searchInput.addEventListener('input', (e) => {
-    const value = e.target.value.toLowerCase();
+if (localStorage.getItem('theme') === 'dark') updateThemeUI(true);
 
-    cards.forEach(card => {
-        const title = card.querySelector('h3').textContent.toLowerCase();
-        // Если заголовок содержит текст из поиска — показываем, иначе скрываем
-        if (title.includes(value)) {
-            card.style.display = "flex";
-        } else {
-            card.style.display = "none";
-        }
+themeBtn.onclick = () => {
+    const isDark = !document.body.classList.contains('dark-theme');
+    updateThemeUI(isDark);
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+};
+
+// --- 3. Пошук ---
+document.getElementById('search-input').oninput = (e) => {
+    const val = e.target.value.toLowerCase();
+    document.querySelectorAll('.card').forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(val) ? 'flex' : 'none';
     });
-});
+};
 
-// 3. Плавный скролл к новостям
-document.getElementById('hero-btn').addEventListener('click', () => {
+// --- 4. Модальні вікна ---
+function initModals() {
+    document.querySelectorAll('.card-btn').forEach(btn => {
+        btn.onclick = () => {
+            const title = btn.closest('.card-content').querySelector('h3').textContent;
+            const modal = document.createElement('div');
+            modal.className = 'modal-overlay';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <h2>${title}</h2>
+                    <p style="margin: 20px 0;">Стаття про <b>${title}</b> готується до публікації. Залишайтеся з нами!</p>
+                    <button class="main-btn close-btn">Зрозуміло</button>
+                </div>`;
+            document.body.appendChild(modal);
+            modal.querySelector('.close-btn').onclick = () => modal.remove();
+            modal.onclick = (e) => { if(e.target === modal) modal.remove(); };
+        };
+    });
+}
+initModals();
+
+// --- 5. Завантаження ще ---
+document.getElementById('load-more').onclick = function() {
+    const container = document.getElementById('cards-container');
+    const newCard = document.createElement('article');
+    newCard.className = 'card';
+    newCard.innerHTML = `
+        <div class="card-img"><img src="https://web-academy.ua/blog/wp-content/uploads/2022/08/web-3-0.jpg" alt="Web3"></div>
+        <div class="card-content">
+            <h3>Майбутнє Web 3.0</h3>
+            <p>Як децентралізація змінить наше уявлення про приватність та цифровий світ.</p>
+            <button class="card-btn">Читати далі</button>
+        </div>`;
+    container.appendChild(newCard);
+    initModals(); // Активуємо кнопку на новій картці
+    this.style.display = 'none'; // Ховаємо кнопку після використання
+};
+
+// --- 6. Підписка ---
+document.getElementById('subscribe-form').onsubmit = function(e) {
+    e.preventDefault();
+    const email = document.getElementById('sub-email').value;
+    this.innerHTML = `<div class="success-msg">🚀 Готово! Лист відправлено на ${email}</div>`;
+};
+
+// --- 7. Плавний скрол кнопки Hero ---
+document.getElementById('hero-btn').onclick = () => {
     document.getElementById('trends').scrollIntoView({ behavior: 'smooth' });
-});
+};
